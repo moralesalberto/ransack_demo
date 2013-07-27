@@ -1,0 +1,23 @@
+<%= will_paginate @people %>
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :first, "First Name") %></th>
+      <th><%= sort_link(@q, :last, "Last Name") %></th>
+      <th><%= sort_link(@q, :email, "Email") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.first %></td>
+        <td><%= person.last %></td>
+        <td><%= person.email %></td>
+        <td><%= person.company %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @people %>
+

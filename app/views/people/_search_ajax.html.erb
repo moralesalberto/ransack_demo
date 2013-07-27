@@ -1,0 +1,18 @@
+
+
+<%= form_for @q, :url => people_path, :html => {:method => :get} do |f| %>
+  Enter name to search:  <%= f.text_field :first_or_last_or_email_cont %>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $('#q_first_or_last_or_email_cont').keyup(function(){
+      value = $('#q_first_or_last_or_email_cont').val();
+      $.ajax({
+        url: 'people/?q[first_or_last_or_email_cont]='+value,
+        dataType: 'script'
+      });
+      return false;
+    });
+  })
+</script>
